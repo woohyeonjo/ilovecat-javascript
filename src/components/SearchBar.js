@@ -16,14 +16,14 @@ export default class SearchBar {
         const randomBtn = document.createElement('button');
         randomBtn.className = 'random-btn';
         randomBtn.innerText = 'RANDOM';
-
-        randomBtn.addEventListener('click', e => {
-            this.onRandom();
-        });
-
+        
         const searchBox = document.createElement('input');
         searchBox.className = 'search-box';
         searchBox.placeholder = '고양이를 검색하세요.';
+        
+        randomBtn.addEventListener('click', e => {
+            this.onRandom();
+        });
 
         searchBox.addEventListener('keyup', e => {
             if(e.keyCode == 13){
