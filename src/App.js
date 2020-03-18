@@ -12,12 +12,18 @@ export default class App {
         const bottom = document.createElement('div');
         bottom.className = 'bottom';
         
-        const searchBar = new SearchBar(top, keyword => {
-            // api call & searchResult update
-            api.fetchImage(keyword).then(data => {
-                searchResult.updateData(data);
-            });
-        });
+        const searchBar = new SearchBar(top,
+            keyword => {
+                api.fetchImage(keyword).then(data => {
+                    searchResult.updateData(data);
+                });
+            },
+            () => {
+                api.fetchImageAll().then(data => {
+                    searchResult.updateData(data);
+                });
+            }
+        );
 
         const searchResult = new SearchResult(bottom);
 

@@ -8,10 +8,15 @@
     height: 90%;
 }
 
+.random-btn {
+    font-size: 30px;
+    margin: 5px;
+}
+
 .search-box {
     width: 60%;
     font-size: 30px;
-    padding: 5px;
+    margin: 5px;
 }
 
 .item-group {

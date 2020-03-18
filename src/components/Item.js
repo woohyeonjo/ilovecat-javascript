@@ -8,7 +8,7 @@ export default class Item {
 
     render() {
         const url = this.data.url;
-        const {temperament, origin} = this.data.breeds[0];
+        const {temperament, origin} = this.data.breeds.length > 0 ? this.data.breeds[0] : { temperament: '정보없음', origin: '정보없음'};
 
         const itemWrapper = document.createElement('div');
         itemWrapper.className = 'wrapper';
