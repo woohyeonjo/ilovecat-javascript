@@ -1,5 +1,6 @@
 import SearchBar from './components/SearchBar.js';
 import SearchResult from './components/SearchResult.js';
+import SearchInfo from './components/SearchInfo.js';
 import { api } from './api/theCatAPI.js';
 
 export default class App {
@@ -26,6 +27,8 @@ export default class App {
         );
 
         const searchResult = new SearchResult(bottom);
+        const searchInfo = new SearchInfo(document.body, []);
+
 
         document.body.appendChild(top);
         document.body.appendChild(bottom);

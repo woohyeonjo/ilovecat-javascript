@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .top {
     display: block;
     height: 10%;
@@ -37,4 +41,51 @@
 .item-img {
     height: 70%;
     width: 100%;
+}
+
+.modal {
+    position: fixed;    
+    background-color: rgba(0, 0, 0, 0.5);
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+    width: 50vw;
+    height: 90vh;
+}
+
+.info-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info-title {
+    margin: 10px;
+    font-size: 16px;
+}
+
+.close-btn {
+    margin: 10px;
+    font-size: 16px;
+}
+
+.info-img {
+    margin: 3px;
+    height: 70%;
+}
+
+.info-description {
+    height: 20%;
+    margin: 0px 3px 3px 3px;
 }
