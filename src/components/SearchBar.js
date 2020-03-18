@@ -1,13 +1,13 @@
 export default class SearchBar {    
 
-    constructor($target) {
+    constructor($target, onSearch) {
         this.$target = $target;
+        this.onSearch = onSearch;
         this.render();
     }
 
     render() {
-        const top = document.createElement('div');
-        top.className = 'top';
+        this.$target.innerHTML = '';
 
         const wrapper = document.createElement('div');
         wrapper.className = 'wrapper';
@@ -15,10 +15,15 @@ export default class SearchBar {
         const searchBox = document.createElement('input');
         searchBox.className = 'search-box';
         searchBox.placeholder = '고양이를 검색하세요.';
+
+        searchBox.addEventListener('keyup', e => {
+            if(e.keyCode == 13){
+                const keyword = searchBox.value;
+                this.onSearch(keyword);
+            }
+        });
         
         wrapper.appendChild(searchBox);
-        top.appendChild(wrapper);
-
-        this.$target.appendChild(top);
+        this.$target.appendChild(wrapper);
     }
 }

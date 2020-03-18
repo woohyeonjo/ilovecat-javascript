@@ -2,16 +2,20 @@ import Item from './Item.js';
 
 export default class SearchResult {
 
-    constructor($target, data) {
+    constructor($target) {
         this.$target = $target;
-        this.data = data;
+        this.data = [];
 
         this.render();
     }
 
+    updateData(data) {
+        this.data = data;
+        this.render();
+    }
+
     render() {
-        const bottom = document.createElement('div');
-        bottom.className = 'bottom';
+        this.$target.innerHTML = '';
 
         const itemGroupWrapper = document.createElement('div');
         itemGroupWrapper.className = 'wrapper';
@@ -19,13 +23,11 @@ export default class SearchResult {
         const itemGroup = document.createElement('div');
         itemGroup.className = 'item-group';
 
-        this.data.forEach(cat => {
-            const item = new Item(this.$target, cat);
-            itemGroup.appendChild(item);
+        this.data.map(cat => {
+            new Item(itemGroup, cat);
         });
         
         itemGroupWrapper.appendChild(itemGroup);
-        bottom.appendChild(itemGroupWrapper);
-        this.$target.appendChild(bottom);
+        this.$target.appendChild(itemGroupWrapper);
     }
 }

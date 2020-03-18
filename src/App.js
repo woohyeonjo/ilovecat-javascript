@@ -6,22 +6,22 @@ export default class App {
     constructor() {
         console.log("App is created!");
         
-        const body = document.body;
+        const top = document.createElement('div');
+        top.className = 'top';
 
-        const searchBar = new SearchBar(body);
-        const searchResult = new SearchResult(body, []);
-
-        const data = api.fetchImage("no");
-        const data2 = api.fetchImageAll();
-
-        data.then(cats => {
-            console.log(cats);
+        const bottom = document.createElement('div');
+        bottom.className = 'bottom';
+        
+        const searchBar = new SearchBar(top, keyword => {
+            // api call & searchResult update
+            api.fetchImage(keyword).then(data => {
+                searchResult.updateData(data);
+            });
         });
 
-        data2.then(cats => {
-            console.log(cats);
-        });
+        const searchResult = new SearchResult(bottom);
+
+        document.body.appendChild(top);
+        document.body.appendChild(bottom);
     }
-
-
 }
