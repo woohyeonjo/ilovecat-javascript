@@ -7,13 +7,14 @@ export default class Item {
     }
 
     render() {
-        const {url, temperament, origin} = this.data;
+        const url = this.data.url;
+        const {temperament, origin} = this.data.breeds[0];
 
         const itemWrapper = document.createElement('div');
         itemWrapper.className = 'wrapper';
 
         const item = document.createElement('div');
-        item.clssName = 'item';
+        item.className = 'item';
 
         const itemImg = document.createElement('img');
         itemImg.className = 'item-img';
