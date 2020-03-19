@@ -3,12 +3,10 @@ body {
 }
 
 .top {
-    display: block;
     height: 10%;
 }
 
 .bottom {
-    display: block;
     height: 90%;
 }
 
@@ -26,7 +24,7 @@ body {
 .item-group {
     display: flex;
     flex-wrap: wrap;
-    justify-self: flex-start;
+    justify-content: flex-start;
     margin: 10px;
 }
 
@@ -43,8 +41,13 @@ body {
     width: 100%;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 .modal {
     position: fixed;    
+    top: -0;
     background-color: rgba(0, 0, 0, 0.5);
 
     width: 100vw;

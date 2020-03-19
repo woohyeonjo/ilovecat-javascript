@@ -1,55 +1,66 @@
 export default class SearchInfo {
-    constructor($target, data) {
+    constructor($target) {
         this.$target = $target;
-        this.data = data;
+        this.data = null;
 
         this.render();
     }
 
+    updateData(data) {
+        this.data = data;
+        this.render();
+    }
+
     render() {
-        // const {url, temperament, origin} = this.data;
+        if(this.data){
+            const url = this.data.url;
+            const {temperament, origin, name} = this.data.breeds.length > 0 ?
+                this.data.breeds[0] : { temperament: '정보없음', origin: '정보없음', name: '정보없음'};
 
-        const modal = document.createElement('div');
-        modal.className = 'modal';
+            this.$target.innerHTML = '';
+    
+            const info = document.createElement('div');
+            info.className = 'info';
+    
+            const infoHeader = document.createElement('div');
+            infoHeader.className = 'info-header';
+    
+            const infoTitle = document.createElement('p');
+            infoTitle.className = 'info-title';
+            infoTitle.innerText = name;
+            
+            const closeBtn = document.createElement('p');
+            closeBtn.className = 'close-btn';
+            closeBtn.innerText = 'X';
+            
+            const infoImg = document.createElement('img');
+            infoImg.className = 'info-img';
+            infoImg.src = url;
+    
+            const infoDescription = document.createElement('div');
+            infoDescription.className = 'info-description';
+    
+            const infoTemper = document.createElement('p');
+            infoTemper.className = 'info-temper';
+            infoTemper.innerText = temperament;
+    
+            const infoOrigin = document.createElement('p');
+            infoOrigin.className = 'info-origin';
+            infoOrigin.innerText = origin;
 
-        const info = document.createElement('div');
-        info.className = 'info';
+            closeBtn.addEventListener('click', () => {
+                this.$target.classList.toggle('hidden');
+            });
+    
+            infoHeader.appendChild(infoTitle);
+            infoHeader.appendChild(closeBtn);
+            infoDescription.appendChild(infoTemper);
+            infoDescription.appendChild(infoOrigin);
+            info.appendChild(infoHeader);
+            info.appendChild(infoImg);
+            info.appendChild(infoDescription);
 
-        const infoHeader = document.createElement('div');
-        infoHeader.className = 'info-header';
-
-        const infoTitle = document.createElement('p');
-        infoTitle.className = 'info-title';
-        infoTitle.innerText = '노르웨이 숲';
-        
-        const closeBtn = document.createElement('p');
-        closeBtn.className = 'close-btn';
-        closeBtn.innerText = 'X';
-        
-        const infoImg = document.createElement('img');
-        infoImg.className = 'info-img';
-        // infoImg.src = url;
-
-        const infoDescription = document.createElement('div');
-        infoDescription.className = 'info-description';
-
-        const infoTemper = document.createElement('p');
-        infoTemper.className = 'info-temper';
-        // infoTemper.innerText = temperament;
-
-        const infoOrigin = document.createElement('p');
-        infoOrigin.className = 'info-origin';
-        // infoOrigin.innerText = origin;
-
-        infoHeader.appendChild(infoTitle);
-        infoHeader.appendChild(closeBtn);
-        infoDescription.appendChild(infoTemper);
-        infoDescription.appendChild(infoOrigin);
-        info.appendChild(infoHeader);
-        info.appendChild(infoImg);
-        info.appendChild(infoDescription);
-        modal.appendChild(info);
-
-        this.$target.appendChild(modal);
+            this.$target.appendChild(info);
+        }
     }
 }
