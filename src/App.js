@@ -30,7 +30,6 @@ export default class App {
 
         const searchResult = new SearchResult(bottom,
             target => {
-                const modal = document.querySelector('.modal');
                 searchInfo.updateData(target.data);
                 modal.classList.toggle('hidden');
             }

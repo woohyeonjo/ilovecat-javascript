@@ -11,6 +11,12 @@ export default class SearchInfo {
         this.render();
     }
 
+    onClose(target) {
+        // event.stopPropagation();
+        target.classList.toggle('hidden');
+        target.data = null;
+    }
+
     render() {
         if(this.data){
             const url = this.data.url;
@@ -21,6 +27,9 @@ export default class SearchInfo {
     
             const info = document.createElement('div');
             info.className = 'info';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'overlay';
     
             const infoHeader = document.createElement('div');
             infoHeader.className = 'info-header';
@@ -49,7 +58,10 @@ export default class SearchInfo {
             infoOrigin.innerText = origin;
 
             closeBtn.addEventListener('click', () => {
-                this.$target.classList.toggle('hidden');
+                this.onClose(this.$target);
+            });
+            overlay.addEventListener('click', () => {
+                this.onClose(this.$target);
             });
     
             infoHeader.appendChild(infoTitle);
@@ -60,6 +72,7 @@ export default class SearchInfo {
             info.appendChild(infoImg);
             info.appendChild(infoDescription);
 
+            this.$target.appendChild(overlay);
             this.$target.appendChild(info);
         }
     }
