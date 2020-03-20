@@ -1,105 +1,94 @@
-body {
+.body {
     margin: 0;
+    padding: 0;
 }
 
-.top {
-    height: 10%;
-}
-
-.bottom {
-    height: 90%;
-}
-
-.random-btn {
-    font-size: 30px;
-    margin: 5px;
+.searching-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .search-box {
-    width: 60%;
-    font-size: 30px;
-    margin: 5px;
+    width: 50%;
+    font-size: 20px;
 }
 
-.item-group {
+.random-btn {
+    font-size: 50px;
+    margin-right: 10px;
+}
+
+.card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin: 10px;
 }
 
-.item {
-    display:flex;
+.cat-card {
+    display: flex;
     flex-direction: column;
-    margin: 4px;
-    height: 300px;
-    width: 200px;
+
+    /* TODO: 카드 정렬하기 */
+    margin-left: calc( (100% - (20% * 4)) / 4 );
+    
+    width: 250px;
+    height: 350px;
 }
 
-.item-img {
+.card-image {
     height: 70%;
-    width: 100%;
 }
 
 .hidden {
     visibility: hidden;
 }
 
-.overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-.modal {
+.modal-wrapper {
     position: fixed;
-    z-index: 1; 
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
-    
-    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: 1;
     
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.info {
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+.modal-contents {
     position: relative;
     display: flex;
     flex-direction: column;
-
-    background-color: white;
-    width: 50vw;
-    height: 90vh;
-}
-
-.info-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.info-title {
-    margin: 10px;
-    font-size: 16px;
-}
-
-.close-btn {
-    margin: 10px;
-    font-size: 16px;
-}
-
-.info-img {
-    margin: 3px;
+    
     height: 70%;
+    width: 50%;
+    padding: 10px;
+    background-color: white;
+
+    /* TODO: box-shadow */
 }
 
-.info-description {
-    height: 20%;
-    margin: 0px 3px 3px 3px;
+.modal-image {
+    height: 60%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 30px;
+}
+
+.modal-title {
+    margin: 0;
 }

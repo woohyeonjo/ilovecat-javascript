@@ -1,44 +1,37 @@
-import SearchBar from './components/SearchBar.js';
-import SearchResult from './components/SearchResult.js';
-import SearchInfo from './components/SearchInfo.js';
+import SearchingSection from './components/SearchingSection.js';
+import ResultsSection from './components/ResultsSection.js';
+import DetailModal from './components/DetailModal.js';
 import { api } from './api/theCatAPI.js';
 
 export default class App {
-    constructor() {        
-        const top = document.createElement('div');
-        top.className = 'top';
-
-        const bottom = document.createElement('div');
-        bottom.className = 'bottom';
-
-        const modal = document.createElement('div');
-        modal.className = 'modal';
-        modal.classList.add('hidden');
-        
-        const searchBar = new SearchBar(top,
-            keyword => {
-                api.fetchImage(keyword).then(data => {
-                    searchResult.updateData(data);
-                });
+    constructor($target) {        
+        const searchingSection = new SearchingSection({
+            $target,
+            onSearch: keyword => {
+                api.fetchCats(keyword).then(data => { resultsSection.setState(data); });
             },
-            () => {
-                api.fetchImageAll().then(data => {
-                    searchResult.updateData(data);
-                });
+            onRandom: () => {
+                api.fetchRandomCats().then(data => { resultsSection.setState(data); });
             }
-        );
+        });
 
-        const searchResult = new SearchResult(bottom,
-            target => {
-                searchInfo.updateData(target.data);
-                modal.classList.toggle('hidden');
+        const resultsSection = new ResultsSection({
+            $target,
+            onClick: data => {
+                detailModal.setState(data);
             }
-        );
+        });
 
-        const searchInfo = new SearchInfo(modal);
+        const detailModal = new DetailModal({
+            $target
+        });
 
-        document.body.appendChild(top);
-        document.body.appendChild(bottom);
-        document.body.appendChild(modal);
+
+        this.focusOnSearchBox();
+    }
+    
+    focusOnSearchBox() {
+        const searchBox = document.querySelector('.search-box');
+        searchBox.focus();
     }
 }
