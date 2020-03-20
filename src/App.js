@@ -1,6 +1,7 @@
 import SearchingSection from './components/SearchingSection.js';
 import ResultsSection from './components/ResultsSection.js';
 import DetailModal from './components/DetailModal.js';
+import Loading from './components/Loading.js';
 import { api } from './api/theCatAPI.js';
 
 export default class App {
@@ -8,10 +9,16 @@ export default class App {
         const searchingSection = new SearchingSection({
             $target,
             onSearch: keyword => {
-                api.fetchCats(keyword).then(data => { resultsSection.setState(data); });
+                loading.toggleSpinner();
+                api.fetchCats(keyword).then(data => { 
+                    loading.toggleSpinner();
+                    resultsSection.setState(data); });
             },
             onRandom: () => {
-                api.fetchRandomCats().then(data => { resultsSection.setState(data); });
+                loading.toggleSpinner();
+                api.fetchRandomCats().then(data => { 
+                    loading.toggleSpinner();
+                    resultsSection.setState(data); });
             }
         });
 
@@ -26,6 +33,9 @@ export default class App {
             $target
         });
 
+        const loading = new Loading({
+            $target
+        });
 
         this.focusOnSearchBox();
     }

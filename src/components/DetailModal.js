@@ -33,8 +33,6 @@ export default class DetailModal {
     render() {
         if(!this.isVisible) return;
 
-        console.log(this.data);
-
         const { url } = this.data;
         const { name, origin, temperament } = this.data.breeds[0] ?
             this.data.breeds[0] : {name: '정보없음', origin: '정보없음', temperament: '정보없음'};
