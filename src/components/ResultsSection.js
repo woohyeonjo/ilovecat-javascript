@@ -33,7 +33,7 @@ export default class ResultsSection {
         } else {
 
             const noticeSection = document.createElement('section');
-            noticeSection.className = 'noticeSection';
+            noticeSection.className = 'notice-section';
             
             const notice = document.createElement('h2');
             notice.className = 'notice';

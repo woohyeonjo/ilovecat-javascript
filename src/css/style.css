@@ -9,9 +9,27 @@
     align-items: center;
 }
 
-.search-box {
+.search-box-wrapper {
+    display: flex;
+    flex-direction: column;
     width: 50%;
+}
+
+.search-box {
     font-size: 20px;
+}
+
+.recent-keywords {
+    margin-top: 10px;
+}
+
+.keyword {
+    background-color: rgb(255, 127, 0);
+    color: white;
+    border-radius: 11px;
+    
+    padding: 5px;
+    margin-right: 8px;
 }
 
 .random-btn {
@@ -19,7 +37,11 @@
     margin-right: 10px;
 }
 
-.noticeSection {
+.results-section {
+    margin-top: 3%;
+}
+
+.notice-section {
     display: flex;
     flex-direction: column;
     justify-content: center;

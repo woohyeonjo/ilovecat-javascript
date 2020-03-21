@@ -1,8 +1,7 @@
-import { createWrapper } from '../util/wrapper.js';
-
 export default class SearchBar {    
     
     constructor({$target, onSearch, onRandom}) {
+        this.recent = [];
         this.onSearch = onSearch;
         this.onRandom = onRandom;
         this.section = document.createElement('section');
@@ -13,11 +12,19 @@ export default class SearchBar {
         this.render();
     }
 
-    searchByKeyword(event) {
-        if(event.keyCode == 13){
-            const keyword = document.querySelector('.search-box').value;
-            this.onSearch(keyword);
-        }
+    addRecentKeyword(keyword) {
+        if(this.recent.includes(keyword)) return;
+        if(this.recent.length == 5) this.recent.shift();
+
+        this.recent.push(keyword);
+        this.render();
+    }
+
+    searchByKeyword(keyword) {
+        if(keyword.length == 0) return;
+
+        this.addRecentKeyword(keyword);
+        this.onSearch(keyword);
     }
 
     deleteKeyword(){
@@ -26,19 +33,43 @@ export default class SearchBar {
     }
 
     render() {
+        this.section.innerHTML = '';
+
         const randomBtn = document.createElement('span');
         randomBtn.className = 'random-btn';
         randomBtn.innerText = '🐱';
         
+        const wrapper = document.createElement('div');
+        wrapper.className = 'search-box-wrapper';
+
         const searchBox = document.createElement('input');
         searchBox.className = 'search-box';
         searchBox.placeholder = '고양이를 검색하세요.';
-        
+
+        const recentKeywords = document.createElement('div');
+        recentKeywords.className = 'recent-keywords';
+
+        this.recent.map(keyword => {
+            const link = document.createElement('span');
+            link.className = 'keyword';
+            link.innerText = keyword;
+
+            link.addEventListener('click', () => { this.searchByKeyword(keyword); });
+
+            recentKeywords.appendChild(link);
+        });
+
         randomBtn.addEventListener('click', this.onRandom);
         searchBox.addEventListener('focus', this.deleteKeyword);
-        searchBox.addEventListener('keyup', event => { this.searchByKeyword(event); });
-        
+        searchBox.addEventListener('keyup', event => {
+            if(event.keyCode == 13){
+                this.searchByKeyword(searchBox.value);
+            }
+        });
+    
+        wrapper.appendChild(searchBox);
+        wrapper.appendChild(recentKeywords);
         this.section.appendChild(randomBtn);
-        this.section.appendChild(searchBox);
+        this.section.appendChild(wrapper);
     }
 }
