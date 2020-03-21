@@ -19,6 +19,23 @@
     margin-right: 10px;
 }
 
+.noticeSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.notice {
+    margin-top: 8%;
+    text-align: center;
+}
+
+.notice-image {
+    height: 300px;
+    width: 350px;
+}
+
 .card-container {
     display: flex;
     flex-wrap: wrap;

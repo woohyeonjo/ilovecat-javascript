@@ -8,8 +8,6 @@ export default class ResultsSection {
         this.section.className = 'results-section';
 
         $target.appendChild(this.section);
-
-        this.render();
     }
 
     setState(data) {
@@ -18,9 +16,8 @@ export default class ResultsSection {
     }
 
     render() {
-        if(this.data){
-            this.section.innerHTML = '';
-
+        this.section.innerHTML = '';
+        if(this.data.length > 0){
             const cardContainer = document.createElement('div');
             cardContainer.className = 'card-container';
     
@@ -33,6 +30,22 @@ export default class ResultsSection {
             });
 
             this.section.appendChild(cardContainer);            
+        } else {
+
+            const noticeSection = document.createElement('section');
+            noticeSection.className = 'noticeSection';
+            
+            const notice = document.createElement('h2');
+            notice.className = 'notice';
+            notice.innerText = '검색 결과가 없습니다.';
+
+            const noticeImage = document.createElement('img');
+            noticeImage.className = 'notice-image';
+            noticeImage.src = 'src/img/emptybox.png';
+
+            noticeSection.appendChild(notice);
+            noticeSection.appendChild(noticeImage);
+            this.section.appendChild(noticeSection);
         }
     }
 }
