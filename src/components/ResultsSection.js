@@ -1,13 +1,15 @@
 import Card from './Card.js';
 
 export default class ResultsSection {
-    constructor({$target, onClick}) {
+    constructor({$target, data, onClick}) {
+        this.data = data;
         this.onClick = onClick;
-        this.data = null;
         this.section = document.createElement('section');
         this.section.className = 'results-section';
 
         $target.appendChild(this.section);
+
+        this.render();
     }
 
     setState(data) {
@@ -17,10 +19,10 @@ export default class ResultsSection {
 
     render() {
         this.section.innerHTML = '';
+        
         if(this.data.length > 0){
             const cardContainer = document.createElement('div');
             cardContainer.className = 'card-container';
-    
             this.data.map(cat => {
                 new Card({
                     $target: cardContainer,
@@ -31,7 +33,6 @@ export default class ResultsSection {
 
             this.section.appendChild(cardContainer);            
         } else {
-
             const noticeSection = document.createElement('section');
             noticeSection.className = 'notice-section';
             

@@ -1,7 +1,9 @@
+import { setItem } from '../util/sessionStorage.js';
+
 export default class SearchBar {    
     
-    constructor({$target, onSearch, onRandom}) {
-        this.recent = [];
+    constructor({$target, keywords, onSearch, onRandom}) {
+        this.recent = keywords;
         this.onSearch = onSearch;
         this.onRandom = onRandom;
         this.section = document.createElement('section');
@@ -17,6 +19,8 @@ export default class SearchBar {
         if(this.recent.length == 5) this.recent.shift();
 
         this.recent.push(keyword);
+        setItem('keywords', this.recent);
+        
         this.render();
     }
 
