@@ -18,6 +18,8 @@ export default class ResultsSection {
     }
 
     render() {
+        if(!this.data) return;
+        
         this.section.innerHTML = '';
         
         if(this.data.length > 0){

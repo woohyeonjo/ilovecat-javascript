@@ -20,7 +20,7 @@ export default class SearchBar {
 
         this.recent.push(keyword);
         setItem('keywords', this.recent);
-        
+
         this.render();
     }
 
