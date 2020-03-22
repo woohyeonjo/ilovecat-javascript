@@ -16,16 +16,19 @@ export default class App {
             onSearch: keyword => {
                 loading.toggleSpinner();
                 api.fetchCats(keyword).then(data => { 
+                    console.log("api call");
                     loading.toggleSpinner();
                     setItem('data', data);
-                    resultsSection.setState(data); });
+                    resultsSection.setState(data);
+                });
             },
             onRandom: () => {
                 loading.toggleSpinner();
                 api.fetchRandomCats().then(data => { 
                     loading.toggleSpinner();
                     setItem('data', data);
-                    resultsSection.setState(data); });
+                    resultsSection.setState(data);
+                });
             }
         });
 
@@ -34,6 +37,16 @@ export default class App {
             data,
             onClick: data => {
                 detailModal.setState(data);
+            },
+            onScroll: () => {
+                loading.toggleSpinner();
+                api.fetchRandomCats().then(data => {
+                    loading.toggleSpinner();
+                    const beforeData = getItem('data');
+                    const nextData = beforeData.concat(data);
+                    setItem('data', nextData);
+                    resultsSection.setState(nextData);
+                });
             }
         });
 
@@ -46,35 +59,8 @@ export default class App {
         });
 
         this.focusOnSearchBox();
-        this.lazyLoad();
     }
 
-    lazyLoad() {
-        document.addEventListener("DOMContentLoaded", function() {
-            let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-          
-            if ("IntersectionObserver" in window) {
-                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            let lazyImage = entry.target;
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.srcset = lazyImage.dataset.srcset;
-                            lazyImage.classList.remove("lazy");
-                            lazyImageObserver.unobserve(lazyImage);
-                        }
-                    });
-                });
-          
-                lazyImages.forEach(function(lazyImage) {
-                    lazyImageObserver.observe(lazyImage);
-                });
-            } else {
-                // Possibly fall back to a more compatible method here
-            }
-        });
-    }
-    
     focusOnSearchBox() {
         const searchBox = document.querySelector('.search-box');
         searchBox.focus();

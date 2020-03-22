@@ -21,9 +21,7 @@ export default class Card {
         const cardImage = document.createElement('img');
         cardImage.className = 'card-image';
         cardImage.classList.add('lazy');
-        cardImage.src = 'src/img/squarecat.jpg';
         cardImage.dataset.src = url;
-        cardImage.dataset.srcset = url;
 
         const cardInfo = document.createElement('article');
         cardInfo.className = 'card-info';
