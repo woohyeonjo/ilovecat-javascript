@@ -1,7 +1,6 @@
 import { setItem } from '../util/sessionStorage.js';
 
 export default class SearchBar {    
-    
     constructor({$target, keywords, onSearch, onRandom}) {
         this.recent = keywords;
         this.onSearch = onSearch;
@@ -12,6 +11,13 @@ export default class SearchBar {
         $target.appendChild(this.section);
 
         this.render();
+
+        this.focusOnSearchBox();
+    }
+
+    focusOnSearchBox() {
+        const searchBox = document.querySelector('.search-box');
+        searchBox.focus();
     }
 
     addRecentKeyword(keyword) {
