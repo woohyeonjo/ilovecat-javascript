@@ -153,3 +153,27 @@
     height: 300px;
     border-radius: 49%;
 }
+
+.error-section {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.error-image {
+    margin-top: 15%;
+    border-radius: 10%;
+}
+
+.status-code {
+    margin: 0;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.error-message {
+    margin: 0;
+    font-size: 20px;
+}
