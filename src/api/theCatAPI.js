@@ -1,10 +1,9 @@
 /* eslint-disable no-useless-catch */
-const API_ENDPOINT = 'https://api.thecatapi.com/v2';
+const API_ENDPOINT = 'https://api.thecatapi.com/v1';
 
 const request = async url => {
     try {
         const response = await fetch(url);
-        
         if(response.ok) {
             const data = await response.json();
             return data;

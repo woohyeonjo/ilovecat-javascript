@@ -31,9 +31,18 @@ export default class Error {
         errorMessage.className = 'error-message';
         errorMessage.innerText = this.errorData.message;
 
+        const returnBtn = document.createElement('p');
+        returnBtn.className = 'return-btn';
+        returnBtn.innerText = '돌아가기';
+
+        returnBtn.addEventListener('click', () => {
+            location.reload();
+        });
+
         errorSection.appendChild(errorImage);
         errorSection.appendChild(statusCode);
         errorSection.appendChild(errorMessage);
+        errorSection.appendChild(returnBtn);
 
         this.$target.appendChild(errorSection);
     }

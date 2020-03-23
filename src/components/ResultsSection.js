@@ -23,6 +23,11 @@ export default class ResultsSection {
         lazyLoad();
     }
 
+    findCatById(id) {
+        const result = this.data.find(cat => cat.id == id);
+        return result;
+    }
+
     render() {
         if(!this.data) return;
 
@@ -37,6 +42,19 @@ export default class ResultsSection {
                     data: cat,
                     onClick: this.onClick
                 });
+            });
+
+            // Event Deligation을 위해서 cardContainer에 이벤트를 추가한다.
+            cardContainer.addEventListener('click', e => {
+                const path = e.path;
+                const card = path.find(comp => comp.className == 'cat-card');
+                
+                if(card){
+                    const id = card.dataset.id;
+                    const catInfo = this.findCatById(id);
+                    
+                    this.onClick(catInfo);
+                }
             });
 
             this.section.appendChild(cardContainer);            
