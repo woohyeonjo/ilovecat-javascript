@@ -1,7 +1,32 @@
-.body {
-    margin: 0;
-    padding: 0;
-}
+:root {
+    --color-mode: 'light';
+    --color-dark: black;
+    --color-light: white;
+    --background: white;
+    --text-color: black;
+  }
+  
+  body {
+    background: var(--background);
+    color: var(--text-color);
+    transition: background 500ms ease-in-out, color 200ms ease;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-mode: 'dark';
+    }
+    
+    :root:not([data-user-color-scheme]) {
+      --background: var(--color-dark);
+      --text-color: var(--color-light);
+    }
+  }
+  
+  [data-user-color-scheme="dark"] {
+    --background: var(--color-dark);
+    --text-color: var(--color-light);
+  }
 
 .searching-section {
     display: flex;
@@ -110,9 +135,10 @@
     flex-direction: column;
     
     height: 70%;
-    width: 50%;
+    width: 30%;
     padding: 10px;
-    background-color: white;
+    background-color: var(--background);
+    color: var(--text-color);
 
     /* TODO: box-shadow */
 }
@@ -180,4 +206,12 @@
 
 .return-btn {
     margin-top: 15px;
+}
+
+.darkmode-btn {
+    font-size: 3rem;
+    position: fixed;
+    top: 1rem;
+    right: 5rem;
+    z-index: 3;
 }

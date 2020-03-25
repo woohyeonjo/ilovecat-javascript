@@ -3,6 +3,7 @@ import ResultsSection from './components/ResultsSection.js';
 import DetailModal from './components/DetailModal.js';
 import Loading from './components/Loading.js';
 import Error from './components/Error.js';
+
 import { api } from './api/theCatAPI.js';
 import { getItem, setItem } from './util/sessionStorage.js';
 
@@ -74,5 +75,11 @@ export default class App {
         const error = new Error({
             $target
         });
+
+        const darkmodeBtn = document.createElement('span');
+        darkmodeBtn.className = 'darkmode-btn';
+        darkmodeBtn.innerText = '🌕';
+
+        $target.appendChild(darkmodeBtn);
     }
 }

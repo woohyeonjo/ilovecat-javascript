@@ -55,10 +55,10 @@ export default class SearchBar {
         const searchBox = document.createElement('input');
         searchBox.className = 'search-box';
         searchBox.placeholder = '고양이를 검색하세요.';
-
+        
         const recentKeywords = document.createElement('div');
         recentKeywords.className = 'recent-keywords';
-
+        
         this.recent.map(keyword => {
             const link = document.createElement('span');
             link.className = 'keyword';
@@ -76,6 +76,7 @@ export default class SearchBar {
                 this.searchByKeyword(searchBox.value);
             }
         });
+
     
         wrapper.appendChild(searchBox);
         wrapper.appendChild(recentKeywords);
