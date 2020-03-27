@@ -17,12 +17,12 @@
 ### 학습 포인트
 
 - [**요구사항에 따른 퍼블리싱 : 시맨틱 웹, 반응형 페이지**](https://velog.io/@hyeon930/요구사항에-따른-퍼블리싱-시맨틱-웹-반응형-페이지)
-- [**유저의 입력에 반응하기 로딩 화면과 결과 없음 : 이벤트 루프, 클래스 구조**](https://velog.io/@hyeon930/유저의-입력에-반응하기-로딩-화면과-결과-없음-이벤트-루프-클래스-구조)
-- [**Modal 만들기 : 이벤트 전파**](https://velog.io/@hyeon930/Modal-만들기-이벤트-전파)
-- [**자식들에게 같은 이벤트 제공하기 event delegation**]()
-- [**필요한 시점에 필요한 리소스 가져오기 lazy load**]()
+- [**유저의 입력에 반응하기 로딩 화면과 결과 없음 : Event loop, Class**](https://velog.io/@hyeon930/유저의-입력에-반응하기-로딩-화면과-결과-없음-Event-loop-Class)
+- [**Modal 만들기 : Event propagation**](https://velog.io/@hyeon930/Modal-만들기-Event-propagation)
+- [**이벤트 리스너 줄이기 : Event deligation**]()
+- [**필요한 시점에 필요한 리소스 가져오기 : Lazy load**]()
 
-- [**새로고침 후에도 화면 유지하기 web storage API**]()
-- [**무한 스크롤 만들기 throttling (feat. debouncing)**]()
+- [**새로고침 후에도 화면 유지하기 Web storage API**]()
+- [**무한 스크롤 만들기 Throttling (feat. Debouncing)**]()
 - [**비동기 요청 에러 핸들링하기**]()
 - [**prefers-color-scheme을 이용한 다크 모드 구현**]()
