@@ -39,8 +39,7 @@ export default class ResultsSection {
             this.data.map(cat => {
                 new Card({
                     $target: cardContainer,
-                    data: cat,
-                    onClick: this.onClick
+                    data: cat
                 });
             });
 

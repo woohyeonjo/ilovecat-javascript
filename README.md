@@ -19,7 +19,7 @@
 - [**요구사항에 따른 퍼블리싱 : 시맨틱 웹, 반응형 페이지**](https://velog.io/@hyeon930/요구사항에-따른-퍼블리싱-시맨틱-웹-반응형-페이지)
 - [**유저의 입력에 반응하기 로딩 화면과 결과 없음 : Event loop, Class**](https://velog.io/@hyeon930/유저의-입력에-반응하기-로딩-화면과-결과-없음-Event-loop-Class)
 - [**Modal 만들기 : Event propagation**](https://velog.io/@hyeon930/Modal-만들기-Event-propagation)
-- [**이벤트 리스너 줄이기 : Event deligation**]()
+- [**이벤트 리스너 줄이기 : Event deligation**](https://velog.io/@hyeon930/이벤트-리스너-줄이기-Event-deligation)
 - [**필요한 시점에 필요한 리소스 가져오기 : Lazy load**]()
 
 - [**새로고침 후에도 화면 유지하기 Web storage API**]()
