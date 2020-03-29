@@ -20,9 +20,9 @@
 - [**유저의 입력에 반응하기 로딩 화면과 결과 없음 : Event loop, Class**](https://velog.io/@hyeon930/유저의-입력에-반응하기-로딩-화면과-결과-없음-Event-loop-Class)
 - [**Modal 만들기 : Event propagation**](https://velog.io/@hyeon930/Modal-만들기-Event-propagation)
 - [**이벤트 리스너 줄이기 : Event deligation**](https://velog.io/@hyeon930/이벤트-리스너-줄이기-Event-deligation)
-- [**필요한 시점에 필요한 리소스 가져오기 : Lazy load**]([https://velog.io/@hyeon930/%ED%95%84%EC%9A%94%ED%95%9C-%EC%8B%9C%EC%A0%90%EC%97%90-%ED%95%84%EC%9A%94%ED%95%9C-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0-Lazy-loading](https://velog.io/@hyeon930/필요한-시점에-필요한-리소스-가져오기-Lazy-loading))
+- [**필요한 시점에 필요한 리소스 가져오기 : Lazy load**](https://velog.io/@hyeon930/필요한-시점에-필요한-리소스-가져오기-Lazy-loading)
 
-- [**새로고침 후에도 화면 유지하기 Web storage API**]()
+- [**새로고침 후에도 결과 화면 유지하기 : Web storage API**](https://velog.io/@hyeon930/새로고침-후에도-결과-화면-유지하기-Web-Storage-API)
 - [**무한 스크롤 만들기 Throttling (feat. Debouncing)**]()
 - [**비동기 요청 에러 핸들링하기**]()
 - [**prefers-color-scheme을 이용한 다크 모드 구현**]()
