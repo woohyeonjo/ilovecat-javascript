@@ -1,7 +1,14 @@
+import { throttling } from './throttle.js';
+
+const throttler = throttling();
+
 function scrollFetch(fetchData) {
     window.addEventListener('scroll', () => {
-        if (getScrollTop() < getDocumentHeight() - window.innerHeight) return;
-        fetchData();
+        throttler.throttle(() => {
+            console.log("Activate Scroll Event");
+            if (getScrollTop() < getDocumentHeight() - window.innerHeight) return;
+            fetchData();
+        }, 700);
     });
 }
 
