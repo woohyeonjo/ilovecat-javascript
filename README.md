@@ -24,6 +24,6 @@
 
 - [**새로고침 후에도 결과 화면 유지하기 : Web storage API**](https://velog.io/@hyeon930/새로고침-후에도-결과-화면-유지하기-Web-Storage-API)
 - [**무한 스크롤 만들기 : Throttling**](https://velog.io/@hyeon930/무한-스크롤-만들기-Throttling)
-- [**비동기 요청 에러 핸들링하기**]()
+- [**비동기 요청 에러 핸들링하기 : Root Return**](https://velog.io/@hyeon930/비동기-요청-에러-핸들링하기)
 - [**prefers-color-scheme을 이용한 다크 모드 구현**]()
 
