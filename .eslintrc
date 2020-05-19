@@ -1,8 +1,9 @@
-module.exports = {
+{
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": "eslint:recommended",
     "globals": {
@@ -29,4 +30,4 @@ module.exports = {
         "space-before-function-paren": 0,
         "eol-last": 0
     }
-};
+}
